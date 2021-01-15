@@ -1,11 +1,13 @@
 const config = {
+  STRIPE_KEY: "pk_test_51I9FLuFPwFkVnPWGuH7ycGIotqktykdyteiMxEEAOZQPHcI5j3B4l4LAdmxvt4ajr4wHBnkpIFaixrVs1DtxpiVq00l4oodPkn",
+  MAX_ATTACHMENT_SIZE: 5000000,
     s3: {
       REGION: "us-east-1",
       BUCKET: "jang-note-app-upload",
     },
     apiGateway: {
       REGION: "us-east-1",
-      URL: "YOUR_API_GATEWAY_URLhttps://mx30x0kh96.execute-api.us-east-1.amazonaws.com/prod"
+      URL: "https://mx30x0kh96.execute-api.us-east-1.amazonaws.com/prod"
     },
     cognito: {
       REGION: "us-east-1",
