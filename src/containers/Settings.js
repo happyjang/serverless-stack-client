@@ -6,6 +6,8 @@ import config from "../config";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import BillingForm from "../components/BillingForm";
 import "./Settings.css";
+import { LinkContainer } from "react-router-bootstrap";
+import LoaderButton from "../components/LoaderButton";
 
 export default function Settings() {
   const history = useHistory();
@@ -28,15 +30,15 @@ export default function Settings() {
       onError(error);
       return;
     }
-  
+
     setIsLoading(true);
-  
+
     try {
       await billUser({
         storage,
         source: token.id
       });
-  
+
       alert("Your card has been charged successfully!");
       history.push("/");
     } catch (e) {
@@ -44,21 +46,20 @@ export default function Settings() {
       setIsLoading(false);
     }
   }
-  
+
   return (
     <div className="Settings">
+      <LinkContainer to="/settings/password">
+        <LoaderButton block bsSize="large">
+          Change Password
+        </LoaderButton>
+      </LinkContainer>
+      <hr />
       <StripeProvider stripe={stripe}>
-        <Elements
-          fonts={[
-            {
-              cssSrc:
-                "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800",
-            },
-          ]}
-        >
+        <Elements>
           <BillingForm isLoading={isLoading} onSubmit={handleFormSubmit} />
         </Elements>
       </StripeProvider>
     </div>
   );
-        }
+}
