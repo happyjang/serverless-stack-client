@@ -1,6 +1,7 @@
 # Serverless-stack-client
 
 A simple note taking app called Scratch. It is a single page application powered by a serverless API written completely in JavaScript. This is the complete source for the frontend. The backend code is located at https://github.com/happyjang/serverless-stack-api.
+
 REQUIREMENTS
 * Should allow users to signup and login to their accounts
 * Users should be able to create notes with some content
